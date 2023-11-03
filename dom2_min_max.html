@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            height: auto;
+            width: 300px;
+            margin: auto;
+            border: 2px solid black;
+        }
+        #minmax{
+            height: 100px;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #min{
+            background-color: red;
+            text-align: center;
+        }
+        #max{
+            background-color: green;
+            text-align: center;
+        }
+        .minmax{
+            height: 50px;
+            width: 100px;
+        }
+        #value{
+            margin: auto;
+            height: 50px;
+            width: 100px;
+            background-color: rgb(156, 144, 144);
+        }
+        .enter{
+           margin-top: 10px;
+            height: 60px;
+            width: 300px;
+        }
+        #button{
+            height: 300px;
+            width: 300px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+    <div id="minmax">
+        <h1 id="min" class="minmax">43</h1>
+        <h2 id="max" class="minmax">2019</h2>
+    </div>
+    <div class="enter">
+        <h1 id="value"></h1>
+    </div>
+    <div id="button">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+    </div>
+    <button id="ent" class="enter" onclick="ent()">Enter</button>
+</div>
+</body>
+
+</html>
+<script>
+    let min = document.getElementById("min")
+    let max = document.getElementById("max")
+    let minbut = document.querySelectorAll("#button > button")
+    let value=document.getElementById("value")
+    let mininput=""
+
+    for(let i=0;i<minbut.length;i++){
+    minbut[i].addEventListener("click",function(){
+        mininput+=minbut[i].innerText
+        value.innerText=mininput
+    })
+}
+
+    function ent(){
+        if( Number(value.innerText) < Number(min.innerText)){
+            min.innerText=Number(value.innerText)
+    }
+    else if(Number(value.innerText) >Number(max.innerText)){
+        max.innerText=Number(value.innerText)
+    }
+    value.innerText=""
+    mininput=""
+}
+
+
+</script>
